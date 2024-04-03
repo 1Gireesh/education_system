@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import '../Styles/Home.css'
 import ColoredTag from '../Components/ColoredTag'
+import { toast } from 'react-hot-toast'
 import { apples, bookIcon, foodsImg, headSuitIcon, milk, oil, paperIcon, peanut, plusIconGreen, plusIconRed, plusIconYellow, tickIcon, water, yoghurt } from '../assets'
 
 export default function Home() {
@@ -42,15 +43,20 @@ export default function Home() {
   };
 
   const handleDrop = (box) => {
-    console.log('Dropped item:', draggedItem, 'into box:', box);
-    setDraggedItem(null);
     setItems(items.map(item => {
-      if (item.name === box.actuval_name && item.streak < 5) {
-        return { ...item, streak: item.streak + 1 }
+      if (draggedItem?.name === box.actuval_name && item?.name === box.actuval_name && item?.streak < 5) {
+        toast.success(streakCoatPerStreak[item?.streak + 1])
+        return { ...item, streak: item?.streak + 1 }
+      }
+      // if droped on wrong box give error 
+      if (draggedItem?.name !== box.actuval_name && item?.name === box.actuval_name && item?.streak < 5) {
+        toast.error('You have droped on wrong box')
       }
       return item;
     }));
+    setDraggedItem(null);
   };
+
 
 
   return (
@@ -65,7 +71,11 @@ export default function Home() {
           <div className='food_items'>
             {
               items.map((item, index) => (
-                <img key={index} src={item.image} alt="" />
+                <div key={index}
+                  onDragStart={() => setDraggedItem(item)}
+                >
+                  <img key={index} src={item?.image} alt="" />
+                </div>
               ))
             }
           </div>
@@ -113,17 +123,17 @@ export default function Home() {
         <div className='streaks'>
           <div className='level_head'>Streaks</div>
           {
-            items.map((item, index) => item.streak ? (
+            items.map((item, index) => item?.streak ? (
               <div className='streak' key={index}>
                 <div className='streak_text'>
-                  <div className='streak_name'>{item.name}</div>
-                  <div className='streak_count'>{item.streak}/5 streaks </div>
-                  <div className='streak_coat'>{streakCoatPerStreak[item.streak]}</div>
+                  <div className='streak_name'>{item?.name}</div>
+                  <div className='streak_count'>{item?.streak}/5 streaks </div>
+                  <div className='streak_coat'>{streakCoatPerStreak[item?.streak]}</div>
                 </div>
                 <div className='streak_progress'>
                   {
-                    item.streak && Array.from({ length: 5 }, (_, index) => (
-                      index < item.streak ? <img key={index} className='streak_complete' src={tickIcon} alt="" /> : <span key={index} className='streak_incomplete'></span>
+                    item?.streak && Array.from({ length: 5 }, (_, index) => (
+                      index < item?.streak ? <img key={index} className='streak_complete' src={tickIcon} alt="" /> : <span key={index} className='streak_incomplete'></span>
                     ))
                   }
                 </div>

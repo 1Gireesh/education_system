@@ -41,13 +41,20 @@
     width: 100%;
 }
 
-.food_items img {
+.food_items div {
     margin: 20px;
     width: 100px;
 }
 
+.food_items img{
+    width: 100%;
+    height: 100%;
+}
+
 .food_items {
     position: absolute;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .question {
