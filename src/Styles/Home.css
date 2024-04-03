@@ -4,6 +4,7 @@
     padding: 60px 40px;
     display: flex;
     gap: 50px;
+    max-width: 1200px;
 }
 
 .dashboard_left {
@@ -192,7 +193,7 @@
     gap: 20px;
 }
 
-.streak_progress{
+.streak_progress {
     display: flex;
     gap: 10px;
     align-items: center;
@@ -215,4 +216,38 @@
     box-sizing: border-box;
     height: 20px;
     display: inline-block;
+}
+
+.streaks {
+    color: #FFF;
+    font-family: PoetsenOne;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.streak_name {
+    font-size: 16px;
+}
+
+.streak_coat,
+.streak_count {
+    color: #FFF;
+    font-family: Podkova;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.7;
+}
+
+.streak{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.item_name{
+    text-align: center;
 }
