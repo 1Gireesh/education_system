@@ -1,0 +1,218 @@
+.dashboard {
+    border-radius: 46px;
+    background: #F4F6F8;
+    padding: 60px 40px;
+    display: flex;
+    gap: 50px;
+}
+
+.dashboard_left {
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+}
+
+.dashboard_right {
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+}
+
+.question {
+    color: #1D1D1D;
+    /* font-family: 'PoetsenOne'; */
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.food_list {
+    display: flex;
+    position: relative;
+    width: 765px;
+    flex-wrap: wrap;
+    height: 364px;
+}
+
+.food_list>img {
+    height: 100%;
+    width: 100%;
+}
+
+.food_items img {
+    margin: 20px;
+    width: 100px;
+}
+
+.food_items {
+    position: absolute;
+}
+
+.question {
+    width: 50%;
+}
+
+.dashboard_collection {
+    border-radius: 25px;
+    background: #FFF;
+    box-shadow: 10px 10px 40px 5px rgba(0, 0, 0, 0.05);
+    padding: 33px 100px;
+    display: flex;
+    gap: 76px;
+}
+
+.dashboard_collection .drop_box {
+    border-radius: 17px;
+    border: 1.5px dashed #40916C;
+    width: 140px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 22px;
+    box-sizing: border-box;
+}
+
+.drop_text {
+    color: #1B4332;
+    text-align: center;
+    font-family: Podkova;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.drop_green {
+    color: #F16A6A;
+    text-align: center;
+    font-family: Podkova;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: 1.5px dashed #40916C;
+    background: #D8F3DC;
+}
+
+.drop_red {
+    color: #F16A6A;
+    text-align: center;
+    font-family: Podkova;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: 1.5px dashed #F08080;
+    background: #FDD;
+}
+
+.drop_yellow {
+    color: #FF9F1C;
+    text-align: center;
+    font-family: Podkova;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: 1.5px dashed #FF9F1C;
+    background: rgba(255, 191, 105, 0.10);
+}
+
+.word_level_board {
+    border-radius: 25px;
+    background: #F28F3B;
+    box-shadow: 10px 10px 40px 5px rgba(0, 0, 0, 0.05);
+    max-width: 421px;
+    min-width: 350px;
+    padding: 40px 21px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+}
+
+.word_level img {
+    width: 82px;
+    height: 82px;
+    border-radius: 12px;
+    background: #F5A562;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.word_level {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.level_progress {
+    display: flex;
+    flex-direction: column;
+}
+
+.level_progress_bar {
+    border-radius: 100px;
+    opacity: 0.2;
+    background: rgb(255, 200, 137);
+    height: 10px;
+}
+
+.level_progress_box {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.level_progress_complete {
+    border-radius: 100px;
+    background: rgb(255, 255, 255);
+    height: 10px;
+}
+
+.level_name {
+    color: #FFF;
+    /* font-family: 'PoetsenOne'; */
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.streaks {
+    padding: 20px;
+    border-radius: 25px;
+    background: #5756B3;
+    box-shadow: 10px 10px 40px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.streak_progress{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.streak_complete {
+    background-color: #95D354;
+    border-radius: 50%;
+    padding: 4px;
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+}
+
+.streak_incomplete {
+    background-color: rgba(255, 255, 255, 0.50);
+    border-radius: 50%;
+    padding: 4px;
+    width: 20px;
+    box-sizing: border-box;
+    height: 20px;
+    display: inline-block;
+}

@@ -1,28 +1,32 @@
-import React from 'react'
-import { auth, provider } from '../Auth/Config'
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
-import '../Styles/Signup.css'
-import { googleIcon } from '../assets'
+import React from 'react';
+import { auth, provider } from '../Auth/Config';
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import '../Styles/Signup.css';
+import { googleIcon } from '../assets';
+import { handleAuth } from '../actions/authAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
-    const handleAuth = () => {
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                const user = result.user;
-                console.log(user)
-            })
-    }
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { user } = useSelector(state => state.auth);
+
+    if (user) navigate('/');
+
     return (
         <div className='signup_page'>
-            <h1 className='signup_wellcome'>Welcome to YTT</h1>
-            <button className='login_button' onClick={handleAuth}>
-                <img src={googleIcon} alt="" />
-                <span>
-                    Continue with Google
-                </span>
-            </button>
+            <div>
+                <h1 className='signup_wellcome'>Welcome to YTT</h1>
+                <button className='login_button' onClick={() => {
+                    dispatch(handleAuth(auth, provider));
+                }}>
+                    <img src={googleIcon} alt="" />
+                    <span>
+                        Continue with Google
+                    </span>
+                </button>
+            </div>
         </div>
     )
 }

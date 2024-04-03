@@ -1,4 +1,4 @@
-.signup_page {
+.signup_page>div {
     display: flex;
     justify-content: center;
     align-items: center;

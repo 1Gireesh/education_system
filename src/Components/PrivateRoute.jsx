@@ -1,9 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import NavBar from './NavBar';
 
-export default function PrivateRoute({children}) {
-  return (
-    <div>
-      
-    </div>
-  )
+const PrivateRoute = ({ children }) => {
+  const isAuthenticated = useSelector(state => state?.auth?.user);
+
+  if (!isAuthenticated) {
+    return <Navigate to='/signup' />;
+  }
+
+  return <>
+    <NavBar />
+    {children}
+  </>
 }
+
+export default PrivateRoute;
