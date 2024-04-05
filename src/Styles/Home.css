@@ -21,7 +21,6 @@
 
 .question {
     color: #1D1D1D;
-    /* font-family: 'PoetsenOne'; */
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -30,15 +29,19 @@
 
 .food_list {
     display: flex;
-    position: relative;
-    width: 765px;
+    width: 500px;
     flex-wrap: wrap;
-    height: 364px;
+    height: 300px;
+    position: relative;
+    margin-right: 350px;
+    margin-bottom: 200px;
 }
 
-.food_list>img {
-    height: 100%;
-    width: 100%;
+.food_list > img {
+    height: 500px;
+    width: 850px;
+    overflow: visible;
+    position: absolute;
 }
 
 .food_items div {
@@ -46,13 +49,8 @@
     width: 100px;
 }
 
-.food_items img{
-    width: 100%;
-    height: 100%;
-}
-
 .food_items {
-    position: absolute;
+    position: relative;
     display: flex;
     flex-wrap: wrap;
 }
@@ -249,12 +247,17 @@
     opacity: 0.7;
 }
 
-.streak{
+.streak {
     display: flex;
     gap: 10px;
     justify-content: space-between;
 }
 
-.item_name{
+.item_name {
     text-align: center;
+}
+
+.food_img {
+    width: 250px;
+    position: absolute;
 }
