@@ -1,13 +1,13 @@
-import React from 'react'
+
 import { Routes, Route } from "react-router-dom"
 import Signup from './Signup'
-import Home from './Home';
 import PrivateRoute from '../Components/PrivateRoute';
+import DashBoard from "./DashBoard.jsx";
 
 export default function AllRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<PrivateRoute> <Home /></PrivateRoute>} />
+            <Route path="/" element={<PrivateRoute> <DashBoard /></PrivateRoute>} />
             <Route path="/signup" element={<Signup />} />
         </Routes>
     )

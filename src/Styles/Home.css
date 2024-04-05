@@ -4,13 +4,17 @@
     padding: 60px 40px;
     display: flex;
     gap: 50px;
-    max-width: 1200px;
+    max-width: 1300px;
+    width: 95vw;
+    margin: 0 auto;
+    justify-content: center;
 }
 
 .dashboard_left {
     display: flex;
     gap: 50px;
     flex-direction: column;
+    width: 55%;
 }
 
 .dashboard_right {
@@ -29,17 +33,16 @@
 
 .food_list {
     display: flex;
-    width: 500px;
+    width: 80%;
     flex-wrap: wrap;
     height: 300px;
     position: relative;
-    margin-right: 350px;
-    margin-bottom: 200px;
+    margin-bottom: 50px;
 }
 
 .food_list > img {
-    height: 500px;
-    width: 850px;
+    height: 350px;
+    width: 700px;
     overflow: visible;
     position: absolute;
 }
@@ -66,11 +69,12 @@
     padding: 33px 100px;
     display: flex;
     gap: 76px;
+    width: 70%;
 }
 
 .dashboard_collection .drop_box {
     border-radius: 17px;
-    border: 1.5px dashed #40916C;
+    border: 2px dashed #40916C;
     width: 140px;
     height: 120px;
     display: flex;
@@ -84,7 +88,7 @@
 .drop_text {
     color: #1B4332;
     text-align: center;
-    font-family: Podkova;
+    font-family: Podkova, serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -94,36 +98,36 @@
 .drop_green {
     color: #F16A6A;
     text-align: center;
-    font-family: Podkova;
+    font-family: Podkova, serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    border: 1.5px dashed #40916C;
+    border: 2px dashed #40916C;
     background: #D8F3DC;
 }
 
 .drop_red {
     color: #F16A6A;
     text-align: center;
-    font-family: Podkova;
+    font-family: Podkova, serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    border: 1.5px dashed #F08080;
+    border: 2px dashed #F08080;
     background: #FDD;
 }
 
 .drop_yellow {
     color: #FF9F1C;
     text-align: center;
-    font-family: Podkova;
+    font-family: Podkova, serif;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    border: 1.5px dashed #FF9F1C;
+    border: 2px dashed #FF9F1C;
     background: rgba(255, 191, 105, 0.10);
 }
 
@@ -225,7 +229,7 @@
 
 .streaks {
     color: #FFF;
-    font-family: PoetsenOne;
+    font-family: PoetsenOne, serif;
     font-size: 26px;
     font-style: normal;
     font-weight: 400;
@@ -239,7 +243,7 @@
 .streak_coat,
 .streak_count {
     color: #FFF;
-    font-family: Podkova;
+    font-family: Podkova, serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -260,4 +264,16 @@
 .food_img {
     width: 250px;
     position: absolute;
+}
+
+@media only screen and (max-width: 1300px) {
+    .dashboard_collection {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .food_list img {
+        height: 300px;
+        width: 600px;
+    }
 }
