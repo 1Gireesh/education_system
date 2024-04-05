@@ -1,11 +1,14 @@
 import {useSelector, useDispatch} from 'react-redux';
-import {setDraggedItem, incrementStreak} from '../actions/itemAction';
+import {setDraggedItem, incrementStreak, getItems, setLoading} from '../actions/itemAction';
 import '../Styles/Home.css';
 import ColoredTag from '../Components/ColoredTag';
 import {toast} from 'react-hot-toast';
 import {background,} from '../assets';
 import Streaks from "../Components/Streaks.jsx";
 import Levels from "../Components/Levels.jsx";
+import {useEffect} from "react";
+import {getFireStoreItems} from "../firestore/fetchItems.js";
+import {ImageLoader, LevelLoader, StreakLoader} from "../Components/Skeleton.jsx";
 
 const positions = [
     {top: '0%', left: '0%'},
@@ -21,7 +24,8 @@ const DashBoard = () => {
     const items = useSelector(state => state?.items?.items);
     const draggedItem = useSelector(state => state?.items?.draggedItem);
     const dropBoxes = useSelector(state => state?.items?.dropBoxes);
-
+    const {user} = useSelector(state => state.auth);
+    const loading = useSelector(state => state?.items?.loading);
     const handleDragStart = (item) => {
         dispatch(setDraggedItem(item));
     };
@@ -32,12 +36,24 @@ const DashBoard = () => {
 
     const handleDrop = (box) => {
         if (draggedItem?.name === box.actual_name && draggedItem?.streak < 5) {
-            dispatch(incrementStreak(box.actual_name));
+            dispatch(incrementStreak(box.actual_name, user.uid));
             toast.success(`You have almost mastered this word!`);
         } else if (draggedItem?.name !== box.actual_name && draggedItem?.streak < 5) {
             toast.error('You have dropped on the wrong box');
         }
     };
+
+    useEffect(() => {
+        dispatch(setLoading(true));
+        getFireStoreItems(user.uid).then((items) => {
+            dispatch(getItems(items));
+        }).catch((error) => {
+            console.log(error);
+            toast.error('Error fetching items');
+        }).finally(() => {
+            dispatch(setLoading(false));
+        });
+    }, []);
 
     return (
         <div className='dashboard'>
@@ -49,10 +65,10 @@ const DashBoard = () => {
                     and <ColoredTag text='Water' color='#40916C'/> water?
                 </div>
                 <div className='food_list'>
-                    <img src={background} className='food_background' alt=""/>
+                    {loading?<ImageLoader/>:<img src={background} className='food_background' alt=""/>}
                     <div className='food_items'>
                         {
-                            items.length && items?.map((item, index) => (
+                           !loading && !!items?.length && items?.map((item, index) => (
                                 <div key={index} className='img_box'
                                      onDragStart={() => handleDragStart(item)}
                                      draggable
@@ -85,9 +101,9 @@ const DashBoard = () => {
             </div>
 
             <div className='dashboard_right'>
-                <Levels/>
+                {loading ? <LevelLoader/> : <Levels/>}
 
-                <Streaks/>
+                {loading ?<StreakLoader/>: <Streaks/>}
             </div>
         </div>
     );

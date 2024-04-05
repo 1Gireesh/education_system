@@ -1,4 +1,3 @@
-import React from 'react'
 import '../Styles/NavBar.css'
 import { coinIcon, rightArrow, userIcon } from '../assets'
 import { useSelector } from 'react-redux';

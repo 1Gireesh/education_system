@@ -8,6 +8,7 @@ const localStorageMiddleware = (store) => (next) => (action) => {
     return result;
 };
 
+
 const persistedAuthState = localStorage.getItem('user')
     ? JSON.parse(localStorage.getItem('user'))
     : {};
