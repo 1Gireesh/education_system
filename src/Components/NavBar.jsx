@@ -1,4 +1,3 @@
-import React from 'react'
 import '../Styles/NavBar.css'
 import { coinIcon, rightArrow, userIcon } from '../assets'
 import { useSelector } from 'react-redux';
@@ -10,7 +9,7 @@ export default function NavBar() {
     return (
         <div className='nav_bar'>
             <div className='user_box'>
-                <img src={ user.image || userIcon} alt="" className='user_icon' />
+                <img src={ user.photoURL || userIcon} alt="" className='user_icon' />
                 <div>
                     <div>Welcome back</div>
                     <h2>Hi {user.displayName}, Good Afternoon!</h2>

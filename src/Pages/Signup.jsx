@@ -1,6 +1,4 @@
-import React from 'react';
 import { auth, provider } from '../Auth/Config';
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import '../Styles/Signup.css';
 import { googleIcon } from '../assets';
 import { handleAuth } from '../actions/authAction';

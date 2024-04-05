@@ -1,0 +1,5 @@
+export const SET_DRAGGED_ITEM = 'SET_DRAGGED_ITEM';
+export const INCREMENT_STREAK = 'INCREMENT_STREAK';
+
+export const GET_ITEMS = 'GET_ITEMS';
+export const SET_LOADING = 'SET_LOADING';
