@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    position: relative;
 }
 
 .user_icon{
@@ -48,4 +49,14 @@
     gap: 20px;
     display: flex;
     cursor: pointer;
+}
+
+.signout_pop{
+    position: absolute;
+    border-radius: 100px;
+    background: #5756B3;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+    top: 105%;
 }
