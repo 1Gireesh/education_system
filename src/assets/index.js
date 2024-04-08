@@ -7,7 +7,7 @@ import peanut from "./item/peanut.png";
 import water from "./item/water.png";
 import bread from "./item/bread.png";
 import eggs from "./item/eggs.png";
-import  cereal from "./item/cereal.png";
+import cereal from "./item/cereal.png";
 import userIcon from "./user.svg";
 import coinIcon from "./coin.svg";
 import rightArrow from "./rightArrow.svg";
@@ -23,7 +23,7 @@ import background from './background.jpeg';
 
 export {
     googleIcon, apples, butter, milk, oil, peanut, water,
-     userIcon, coinIcon, rightArrow, foodsImg, plusIconGreen,
+    userIcon, coinIcon, rightArrow, foodsImg, plusIconGreen,
     plusIconRed, plusIconYellow, tickIcon,
     bookIcon, paperIcon, headSuitIcon,
     bread, eggs,
