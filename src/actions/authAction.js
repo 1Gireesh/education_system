@@ -1,20 +1,16 @@
 import { signInWithPopup } from 'firebase/auth';
-import { doc,getDoc,setDoc } from 'firebase/firestore';
-import { SET_USER } from '../actionTypes/authType';
-import {db} from "../Auth/Config.js";
+import { deleteDoc, doc, getDoc, setDoc } from 'firebase/firestore';
+import { REMOVE_USER, SET_USER } from '../actionTypes/authType';
+import { db } from "../Auth/Config.js";
 import {
-    apples,
     bookIcon,
     headSuitIcon,
-    milk,
-    oil,
     paperIcon,
-    peanut,
     plusIconGreen,
     plusIconRed, plusIconYellow,
-    water
 } from "../assets/index.js";
-import {toast} from "react-hot-toast";
+import { apples, bread, butter, eggs, lollies, milk, oil, peanut, water, yoghurt } from "../assets/foodItems/index.js";
+import { toast } from "react-hot-toast";
 
 export const setUser = (user) => ({
     type: SET_USER,
@@ -23,6 +19,13 @@ export const setUser = (user) => ({
         email: user.email,
         photoURL: user.photoURL,
         uid: user.uid,
+    },
+});
+
+export const removeUser = () => ({
+    type: REMOVE_USER,
+    payload: {
+
     },
 });
 
@@ -47,6 +50,11 @@ export const handleAuth = (auth, provider) => {
                         { name: 'Water', image: water, streak: 3 },
                         { name: 'Oil', image: oil, streak: 1 },
                         { name: 'Milk', image: milk, streak: 0 },
+                        { name: 'Bread', image: bread, streak: 0 },
+                        { name: 'Butter', image: butter, streak: 0 },
+                        { name: 'Eggs', image: eggs, streak: 0 },
+                        { name: 'Lollies', image: lollies, streak: 0 },
+                        { name: 'Yoghurt', image: yoghurt, streak: 0 },
                     ],
                     draggedItem: null,
                     dropBoxes: [
